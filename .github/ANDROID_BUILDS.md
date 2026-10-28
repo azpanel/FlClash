@@ -8,15 +8,17 @@ Both versions use the application ID `com.lumenlink.client`. Kotlin namespaces
 and Flutter channel names retain their original values so existing native
 components keep working. The renamed app installs separately from upstream.
 
-Each version has one artifact containing these APKs:
+Each version publishes these individual APK assets to its matching GitHub
+Release (`v0.9.0` or `v0.9.2`):
 
 - `FlClash-<version>-android-arm64-v8a.apk`
 - `FlClash-<version>-android-armeabi-v7a.apk`
 - `FlClash-<version>-android-x86_64.apk`
 
-Before uploading, the workflow verifies the application ID, version name, ABI
-and APK signature. Artifacts are retained for 30 days; no desktop packages,
-website deployment or external release notifications run in this workflow.
+Before publishing, the workflow verifies the application ID, version name, ABI
+and APK signature. It uploads no ZIP artifacts to Actions and saves no build
+caches. No desktop packages, website deployment or external release
+notifications run in this workflow.
 
 Configure these repository Actions secrets once, keeping the same signing key
 for both versions and future updates:
